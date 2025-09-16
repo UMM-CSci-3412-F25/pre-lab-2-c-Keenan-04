@@ -33,7 +33,8 @@ char const *strip(char const *str) {
 
   // Allocate a slot for all the "saved" characters
   // plus one extra for the null terminator.
-  char* result = (char*) calloc(size-num_spaces+1, sizeof(char));
+  int numspace = size-num_spaces+1;
+  char* result = (char*) calloc(numspace, sizeof(char));
 
   // Copy in the "saved" characters.
   int i;
@@ -42,7 +43,7 @@ char const *strip(char const *str) {
   }
   // Place the null terminator at the end of the result string.
   result[i-first_non_space] = '\0';
-
+  free(result);
   return result;
 }
 
@@ -60,6 +61,6 @@ int is_clean(char const *str) {
   // 0 if they're equal, and a positive value if the first is
   // greater than the second.
   int result = strcmp(str, cleaned);
-  free(cleaned);
+ 
   return result == 0;
 }
