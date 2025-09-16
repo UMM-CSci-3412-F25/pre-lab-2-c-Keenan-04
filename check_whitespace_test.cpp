@@ -6,35 +6,35 @@ TEST(strip, EmptyString) {
 
 
     char*thing = strip("");
-    ASSERT_STREQ("frog", strip("frog"));
-    free(thing);
+    ASSERT_STREQ("", thing);
+    delete(thing);
 }
 
 TEST(strip, NoWhitespace) {
     char*thing = strip("frog");
-    ASSERT_STREQ("frog", strip("frog"));
-    free(thing);
+    ASSERT_STREQ("frog", thing);
+    delete(thing);
 }
 
 
 TEST(strip, WhitespaceOnFront) {
     char*thing = strip("   frog");
-    ASSERT_STREQ("frog", strip("   frog"));
-    free(thing);
+    ASSERT_STREQ("frog", thing);
+    delete(thing);
 }
 
 
 TEST(strip, WhitespaceOnBack) {
     char*thing = strip("frog  ");
-    ASSERT_STREQ("frog", strip("frog  "));
-    free(thing);
+    ASSERT_STREQ("frog", thing);
+    delete(thing);
 }
 
 
 TEST(strip, WhitespaceOnBothEnds) {
     char*thing = strip("  frog     ");
-    ASSERT_STREQ("frog", strip("  frog     "));
-    free(thing);
+    ASSERT_STREQ("frog", thing);
+    delete(thing);
 }
 
 TEST(is_clean, EmptyString) {
