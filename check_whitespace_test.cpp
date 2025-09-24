@@ -5,36 +5,36 @@
 TEST(strip, EmptyString) {
 
 
-    char*thing = strip("");
+    char *thing = strip("");
     ASSERT_STREQ("", thing);
-    delete(thing);
+    free(thing);
 }
 
 TEST(strip, NoWhitespace) {
-    char*thing = strip("frog");
+    char *thing = strip("frog");
     ASSERT_STREQ("frog", thing);
-    delete(thing);
+    free(thing);
 }
 
 
 TEST(strip, WhitespaceOnFront) {
-    char*thing = strip("   frog");
+    char *thing = strip("   frog");
     ASSERT_STREQ("frog", thing);
-    delete(thing);
+    free(thing);
 }
 
 
 TEST(strip, WhitespaceOnBack) {
-    char*thing = strip("frog  ");
+    char *thing = strip("frog  ");
     ASSERT_STREQ("frog", thing);
-    delete(thing);
+    free(thing);
 }
 
 
 TEST(strip, WhitespaceOnBothEnds) {
     char*thing = strip("  frog     ");
     ASSERT_STREQ("frog", thing);
-    delete(thing);
+    free(thing);
 }
 
 TEST(is_clean, EmptyString) {
